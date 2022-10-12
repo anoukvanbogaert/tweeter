@@ -1,0 +1,35 @@
+.all-tweets:hover {
+  box-shadow: 5px 10px #D9D9D6;
+}
+
+.all-tweets {
+  border: 5px solid #545149;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  padding: 1em
+}
+
+.all-tweets header {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: transparent;
+  margin: 0;
+}
+
+header p {
+  margin-left: 1em
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 5px solid #545149;
+}
+
+i:hover {
+  color: #ebae34;
+}

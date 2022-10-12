@@ -1,0 +1,14 @@
+.profile {
+  background-image: url("https://www.transparenttextures.com/patterns/food.png");
+  background-color: #ebae34;
+  color: white;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.name {
+  font: 'source sans pro', 'sans serif';
+}

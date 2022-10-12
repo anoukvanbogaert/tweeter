@@ -6,7 +6,10 @@
 html {
   box-sizing: border-box;
 }
-*, *:before, *:after {
+
+*,
+*:before,
+*:after {
   box-sizing: inherit;
 }
 
@@ -15,11 +18,26 @@ html {
  */
 
 body {
+  display: flex;
+  flex-direction: column;
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  font-family: 'source sans pro', 'sans serif'
 }
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+.container {
+  align-self: center;
+  min-width: 90%;
+  background-color: #f4f1ec;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
