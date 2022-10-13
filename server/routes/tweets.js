@@ -26,7 +26,7 @@ module.exports = function(DataHelpers) {
     const tweet = {
       user: user,
       content: {
-        text: req.body.text
+        text: req.body.text //this is the dataToSend from client.js
       },
       created_at: Date.now()
     };

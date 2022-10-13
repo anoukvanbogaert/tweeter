@@ -4,16 +4,22 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+
 $(document).ready(function(event) {
   const renderTweets = function(tweets) {
-    $('.all-tweets').empty()
+    $('.all-tweets').empty() ///emptying the html, NOT THE JSON
     for (let tweet of tweets) {
-      console.log(tweets)
       let newTweet = createTweetElement(tweet)
-      console.log(newTweet)
       $('.all-tweets').prepend(newTweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     }
   }
+
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function(tweet) {
     let creation = timeago.format(tweet.created_at)
     let $tweet = `  
@@ -22,7 +28,7 @@ $(document).ready(function(event) {
           <img src="${tweet.user.avatars}">
             <p>${tweet.user.name}</p>
           </header>
-          <p>${tweet.content.text}</p>
+          <p>${escape(tweet.content.text)}</p>
           <footer>
             <div>
               <p>${creation}</p>
@@ -54,7 +60,8 @@ $(document).ready(function(event) {
     }
 
     //get the data from the form
-    const dataToSend = $form.serialize();
+    const dataToSend = $form.serialize(); //turn object into JSON
+
     //Form.serialize() will get all the values from the form controls like 
     //textboxes and convert it into an object with key value pair
 
@@ -78,8 +85,9 @@ $(document).ready(function(event) {
     // const $button = $('.tweet-button')
     // $button.on('click', function() {
     $.ajax({
-      method: 'GET',
-      url: '/tweets',
+      method: 'GET', //read
+      url: '/tweets',//the JSON file in initial-tweets
+      // stringified json from data-helpers 20
       success: function(result) {
         renderTweets(result); //this function calls createTweet
       },
