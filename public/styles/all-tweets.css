@@ -1,10 +1,13 @@
-.all-tweets:hover {
+article:hover {
   box-shadow: 5px 10px #D9D9D6;
 }
 
 .all-tweets {
-  border: 5px solid #545149;
   margin-top: 3em;
+}
+
+article {
+  border: 5px solid #545149;
   margin-bottom: 3em;
   padding: 1em
 }
