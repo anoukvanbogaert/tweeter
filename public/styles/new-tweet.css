@@ -28,7 +28,15 @@
   margin-top: 1em;
 }
 
-/* styling for tweets > 140 char */
+/* counter styling for tweets > 140 char */
 .to-red {
   color: red;
+}
+
+/* error message styling for tweets > 140 char */
+#error-message {
+  margin-top: 1em;
+  color: red;
+  border: 3px solid red;
+  line-height: 2em
 }

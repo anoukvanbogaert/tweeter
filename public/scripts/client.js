@@ -6,6 +6,8 @@
 
 
 $(document).ready(function(event) {
+  $('#error-message').hide();
+
   const renderTweets = function(tweets) {
     $('.all-tweets').empty() ///emptying the html, NOT THE JSON
     for (let tweet of tweets) {
@@ -51,11 +53,13 @@ $(document).ready(function(event) {
   $form.on('submit', (event) => {
     event.preventDefault();
     if ($('#tweet-text').val().length > 140) {
-      alert('Your tweet is too long!')
+      let errorMsg = " uh-oh! You passed the 140 character limit."
+      $('#error-message').html(errorMsg).slideDown();
       return
     }
     if ($('#tweet-text').val().length === 0) {
-      alert('Your tweet is empty!')
+      let errorMsg = " uh-oh! That's a quiet tweet!"
+      $('#error-message').html(errorMsg).slideDown();
       return
     }
 
@@ -72,6 +76,7 @@ $(document).ready(function(event) {
       data: dataToSend,
       success: function(result) {
         loadTweets()
+        $('#error-message').slideUp()
         console.log("Successs", result);
       },
       error: function(err) {

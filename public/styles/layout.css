@@ -3,6 +3,7 @@
  * https://css-tricks.com/international-box-sizing-awareness-day/
  * Do not modify these two selectors, please
  */
+
 html {
   box-sizing: border-box;
 }
@@ -26,10 +27,6 @@ body {
   font-family: 'source sans pro', 'sans serif'
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
-
 .container {
   align-self: center;
   min-width: 90%;
@@ -40,4 +37,8 @@ form {
   display: flex;
   flex-direction: column;
   margin-top: 1em;
+}
+
+button:hover {
+  box-shadow: 5px 7px #D9D9D6;
 }
