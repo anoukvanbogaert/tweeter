@@ -103,7 +103,7 @@ $(document).ready(function(event) {
       },
       error: function(err) {
         console.log("Some errror occurred ", err);
-      };
+      }
     }); //AJAX CAll ends POST
 
     // resetting form and resetting counter
