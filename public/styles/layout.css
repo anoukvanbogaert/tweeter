@@ -29,7 +29,7 @@ body {
 
 .container {
   align-self: center;
-  min-width: 90%;
+  width: 90%;
   background-color: #f4f1ec;
 }
 
@@ -39,6 +39,12 @@ form {
   margin-top: 1em;
 }
 
-button:hover {
-  box-shadow: 5px 7px #D9D9D6;
+@media only screen and (min-width: 1024px) {
+
+  /* body {
+    flex-direction: row;
+  } */
+  .container {
+    align-self: flex-end
+  }
 }

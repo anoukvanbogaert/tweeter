@@ -6,8 +6,24 @@
 
 
 $(document).ready(function(event) {
+  // ---- error message ----
+  // hiding the error message and tweet form at the start
   $('#error-message').hide();
+  $('#tweet-form').hide();
 
+  // hiding the error message after user clicks into text area
+  $('#tweet-text').on('click', (event) => {
+    $('#error-message').slideUp();
+  })
+
+  // making tweet form slide down when new tweet is clicked
+  $('#error-message').slideUp();
+
+  $('#new-tweet-button').on('click', (event) => {
+    $("#tweet-form").slideToggle();
+  })
+
+  //adding tweets to database
   const renderTweets = function(tweets) {
     $('.all-tweets').empty() ///emptying the html, NOT THE JSON
     for (let tweet of tweets) {
@@ -27,8 +43,14 @@ $(document).ready(function(event) {
     let $tweet = `  
         <article>
           <header>
-          <img src="${tweet.user.avatars}">
-            <p>${tweet.user.name}</p>
+              <div id="tweet-header-left">
+                <img src="${tweet.user.avatars}">
+                <p>${tweet.user.name}</p>
+              </div>
+              <div id="tweet-header-right">
+              <p>${tweet.user.handle}</p>
+              </div>
+
           </header>
           <p>${escape(tweet.content.text)}</p>
           <footer>
@@ -45,6 +67,7 @@ $(document).ready(function(event) {
       `
     return $tweet
   }
+
 
   // grabbing the form
   const $form = $('#tweet-form');
@@ -63,6 +86,8 @@ $(document).ready(function(event) {
       return
     }
 
+
+
     //get the data from the form
     const dataToSend = $form.serialize(); //turn object into JSON
 
@@ -75,14 +100,17 @@ $(document).ready(function(event) {
       url: '/tweets',
       data: dataToSend,
       success: function(result) {
-        loadTweets()
-        $('#error-message').slideUp()
-        console.log("Successs", result);
+        loadTweets();
+        $('#error-message').slideUp();
       },
       error: function(err) {
         console.log("Some errror occurred ", err);
       }
     }); //AJAX CAll ends POST
+
+    // resetting form and resetting counter
+    $form.trigger('reset');
+    $('#counter').html('140')
 
   }) //form.on close
   const loadTweets = () => {

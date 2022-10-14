@@ -6,17 +6,28 @@ article:hover {
   margin-top: 3em;
 }
 
+form button:hover {
+  box-shadow: 5px 7px #D9D9D6;
+}
+
 article {
   border: 5px solid #545149;
+  border-radius: 15px;
   margin-bottom: 3em;
   padding: 1em
+}
+
+.all-tweets #tweet-header-left {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
 }
 
 .all-tweets header {
   display: flex;
   align-items: flex-start;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   background-color: transparent;
   margin: 0;
 }
@@ -35,4 +46,14 @@ footer {
 
 i:hover {
   color: #ebae34;
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    margin-top: 150px;
+  }
+
+  .all-tweets {
+    margin-top: 1em;
+  }
 }

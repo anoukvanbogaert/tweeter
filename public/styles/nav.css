@@ -21,6 +21,18 @@ nav span {
   font-size: 40px;
 }
 
+nav button {
+  background: #4056A1;
+  border: none;
+  color: #FFFFFF
+}
+
+nav button:hover {
+  border: 2px solid #FFFFFF;
+  padding: 12px;
+  border-radius: 15px;
+}
+
 .new {
   display: flex;
   flex-direction: column;

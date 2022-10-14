@@ -1,6 +1,7 @@
 .profile {
   background-image: url("https://www.transparenttextures.com/patterns/food.png");
   background-color: #ebae34;
+  border-radius: 15px;
   color: white;
   margin-top: 120px;
   display: flex;
@@ -11,4 +12,17 @@
 
 .name {
   font: 'source sans pro', 'sans serif';
+}
+
+@media only screen and (min-width: 1024px) {
+  .profile {
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    height: 400px;
+    margin-top: 170px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-top: 50px;
+  }
 }
