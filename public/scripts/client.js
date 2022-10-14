@@ -14,23 +14,23 @@ $(document).ready(function(event) {
   // hiding the error message after user clicks into text area
   $('#tweet-text').on('click', (event) => {
     $('#error-message').slideUp();
-  })
+  });
 
   // making tweet form slide down when new tweet is clicked
   $('#error-message').slideUp();
 
   $('#new-tweet-button').on('click', (event) => {
     $("#tweet-form").slideToggle();
-  })
+  });
 
   //adding tweets to database
   const renderTweets = function(tweets) {
     $('.all-tweets').empty() ///emptying the html, NOT THE JSON
     for (let tweet of tweets) {
-      let newTweet = createTweetElement(tweet)
+      let newTweet = createTweetElement(tweet);
       $('.all-tweets').prepend(newTweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     }
-  }
+  };
 
   const escape = function(str) {
     let div = document.createElement("div");
@@ -39,7 +39,7 @@ $(document).ready(function(event) {
   };
 
   const createTweetElement = function(tweet) {
-    let creation = timeago.format(tweet.created_at)
+    let creation = timeago.format(tweet.created_at);
     let $tweet = `  
         <article>
           <header>
@@ -65,8 +65,8 @@ $(document).ready(function(event) {
           </footer>
         </article>
       `
-    return $tweet
-  }
+    return $tweet;
+  };
 
 
   // grabbing the form
@@ -81,12 +81,10 @@ $(document).ready(function(event) {
       return
     }
     if ($('#tweet-text').val().length === 0) {
-      let errorMsg = " uh-oh! That's a quiet tweet!"
+      let errorMsg = "uh-oh! That's a quiet tweet!";
       $('#error-message').html(errorMsg).slideDown();
-      return
+      return;
     }
-
-
 
     //get the data from the form
     const dataToSend = $form.serialize(); //turn object into JSON
@@ -105,12 +103,12 @@ $(document).ready(function(event) {
       },
       error: function(err) {
         console.log("Some errror occurred ", err);
-      }
+      };
     }); //AJAX CAll ends POST
 
     // resetting form and resetting counter
     $form.trigger('reset');
-    $('#counter').html('140')
+    $('#counter').html('140');
 
   }) //form.on close
   const loadTweets = () => {
@@ -127,11 +125,11 @@ $(document).ready(function(event) {
       error: function(err) {
         console.log("Some errror occurred ", err)
       }
-    })
-  }
-  loadTweets()
-}) //document load
-// fetching the tweets:
+    });
+  };
+  loadTweets();
+}); //document load closing brackets
+
 
 
 
